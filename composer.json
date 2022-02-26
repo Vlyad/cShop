@@ -1,0 +1,7 @@
+{
+    "require": {
+        "smarty/smarty": "^4.1",
+      "ext-pdo": "*",
+      "ext-ctype": "*"
+    }
+}

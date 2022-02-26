@@ -1,0 +1,115 @@
+header[role=banner] div.banner img {
+    height: 460px;
+    width: 100%;
+}
+body {
+    background-color: #0f1217;
+}
+nav.navbar {
+    background-color: rgba(0,0,0, 0.3);
+}
+.mr-auto {
+    margin-right: auto;
+}
+.ml-auto {
+    margin-left: auto;
+}
+.ml-5 {
+    margin-left: 50px !important;
+}
+.navbar-nav, .nav-link, .nav-item {
+    color: #e6e6e6 !important;
+}
+.nav-item {
+    margin-left: 20px;
+}
+.nav-item:nth-child(1) {
+    margin-left:0;
+}
+
+ul.navbar-nav li.nav-item a.nav-link {
+    transition: ease .7s;
+}
+ul.navbar-nav li.nav-item a.nav-link:hover {
+    border-bottom: #bb2d3b 1px solid;
+}
+ul#navbar-nav-right li.nav-item:nth-child(2) {
+    margin-right: 50px;
+    margin-left: 20px;
+
+}
+ul#navbar-nav-right li.nav-item {
+    margin-left: 0;
+}
+h2.navbar-brand {
+    color: #e6e6e6;
+    text-align: center;
+    font-size: 3rem;
+}
+div.main-text {
+    color: #e6e6e6;
+    text-align: center;
+}
+section div.container {
+    padding-top: 65px;
+    padding-bottom: 65px;
+}
+section div.container div.container-fluid {
+    background-color: rgba(0,0,0, 0.3);
+}
+
+footer {
+    background-color: rgba(0,0,0, 0.3);
+    color: #e6e6e6;
+    text-align: center;
+    height: 45px;
+    line-height: 45px;
+    font-size: 1.2em;
+}
+.login-form-1{
+    padding: 9%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+.login-form-1 h3{
+    text-align: center;
+    margin-bottom:12%;
+    color:#fff;
+}
+.btnSubmit{
+    font-weight: 600;
+    width: 50%;
+    color: #282726;
+    background-color: #fff;
+    border: none;
+    border-radius: 1.5rem;
+    padding:2%;
+}
+.btnForgetPwd{
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+}
+.btnForgetPwd:hover{
+    text-decoration:none;
+    color:#fff;
+}
+label.logowanie {
+    display: flex;
+    margin-bottom: 13px;
+}
+label.rejestracja {
+    display: flex;
+    margin-bottom: 13px;
+}
+div.main-profile {
+    min-height: 300px;
+    padding-top: 60px;
+}
+
+span.profile_addition {
+    font-size: 9px;
+    text-transform: uppercase;
+    color: #0a58ca;
+    cursor: pointer;
+    vertical-align: top;
+}
