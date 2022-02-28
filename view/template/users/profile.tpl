@@ -1,6 +1,13 @@
 {include file='layouts/header.tpl'}
-<head><title>{$title}</title></head>
+<head>
+    {if isset($smarty.session.Logged)}
+        <title>{$title}</title>
+    {else}
+        <title>Musisz być zalogowany!</title>
+    {/if}
+</head>
     <div class="main-text main-profile">
+        {if isset($smarty.session.Logged)}
         <div class="row">
             <div class="col">
                 {if isset($smarty.session.ErrorMsg)}
@@ -16,13 +23,21 @@
                 Twój Steam ID: {$Steam_id} <span class="profile_addition" data-toggle="modal" data-target="#steamid">(zmień)</span>
             </div>
             <div class="col">
-                Twoję pieniędzę: {$Wallet}zł <span class="profile_addition">(doładuj)</span>
+                Twoję pieniędzę: {$Wallet}zł <span class="profile_addition"><a href="/?page=wallet">(doładuj)</a></span>
             </div>
             <div class="col">
                 Aktywne usługi: VIP - Mirage <span class="profile_addition">(kup usługę)</span>
             </div>
         </div>
+        {else}
+            <div class="alert alert-danger" role="alert">
+                Musisz być zalogowany! <a href="/?page=login">Zaloguj!</a>
+            </div>
+        {/if}
     </div>
+
+
+
 
 
 <div class="modal fade" id="steamid" tabindex="-1" role="dialog" aria-labelledby="steamidTitle" aria-hidden="true">

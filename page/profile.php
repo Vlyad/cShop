@@ -23,10 +23,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_GET['changesid'] === "1") {
     $_SESSION['Success'] = "Zmieniłeś SteamID";
     header("url=/?page=profile");
 }
-
-$Smarty->assign("Name", $_SESSION['Name']);
-$Smarty->assign("Wallet", $_SESSION['Wallet']);
-$Smarty->assign("Steam_id", $_SESSION['Steam_id']);
-$Smarty->assign("title", "Profil użytkownika ".$_SESSION['Name']);
+if ($_SESSION['Logged'] === TRUE) {
+    $Smarty->assign("Name", $_SESSION['Name']);
+    $Smarty->assign("Wallet", $_SESSION['Wallet']);
+    $Smarty->assign("Steam_id", $_SESSION['Steam_id']);
+    $Smarty->assign("title", "Profil użytkownika " . $_SESSION['Name']);
+}
 $Smarty->display("users/profile.tpl");
 unset($_SESSION['ErrorMsg'], $_SESSION['Success']);

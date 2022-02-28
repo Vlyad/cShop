@@ -113,3 +113,7 @@ span.profile_addition {
     cursor: pointer;
     vertical-align: top;
 }
+img.wallet-payments-img {
+    width: 340px;
+    height: 210px;
+}

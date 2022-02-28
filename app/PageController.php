@@ -27,6 +27,8 @@ if (isset($_GET['page'])) {
         case "profile":
             require_once PAGE."profile.php";
             break;
+        case "wallet":
+            require_once PAGE."wallet.php";
     }
 }
 else {

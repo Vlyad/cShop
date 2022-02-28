@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-02-26 09:18:55
+/* Smarty version 4.1.0, created on 2022-02-26 21:45:29
   from 'F:\cshop\view\template\users\profile.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_6219e26fa66ee1_81797334',
+  'unifunc' => 'content_621a9169346865_47687540',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '28bd722188e0eb1bc1e835f42e978889a467b925' => 
     array (
       0 => 'F:\\cshop\\view\\template\\users\\profile.tpl',
-      1 => 1645863535,
+      1 => 1645908327,
       2 => 'file',
     ),
   ),
@@ -22,12 +22,19 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:layouts/footer.tpl' => 1,
   ),
 ),false)) {
-function content_6219e26fa66ee1_81797334 (Smarty_Internal_Template $_smarty_tpl) {
+function content_621a9169346865_47687540 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender('file:layouts/header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
-<head><title><?php echo $_smarty_tpl->tpl_vars['title']->value;?>
-</title></head>
+<head>
+    <?php if ((isset($_SESSION['Logged']))) {?>
+        <title><?php echo $_smarty_tpl->tpl_vars['title']->value;?>
+</title>
+    <?php } else { ?>
+        <title>Musisz być zalogowany!</title>
+    <?php }?>
+</head>
     <div class="main-text main-profile">
+        <?php if ((isset($_SESSION['Logged']))) {?>
         <div class="row">
             <div class="col">
                 <?php if ((isset($_SESSION['ErrorMsg']))) {?>
@@ -47,13 +54,21 @@ $_smarty_tpl->_subTemplateRender('file:layouts/header.tpl', $_smarty_tpl->cache_
             </div>
             <div class="col">
                 Twoję pieniędzę: <?php echo $_smarty_tpl->tpl_vars['Wallet']->value;?>
-zł <span class="profile_addition">(doładuj)</span>
+zł <span class="profile_addition"><a href="/?page=wallet">(doładuj)</a></span>
             </div>
             <div class="col">
                 Aktywne usługi: VIP - Mirage <span class="profile_addition">(kup usługę)</span>
             </div>
         </div>
+        <?php } else { ?>
+            <div class="alert alert-danger" role="alert">
+                Musisz być zalogowany! <a href="/?page=login">Zaloguj!</a>
+            </div>
+        <?php }?>
     </div>
+
+
+
 
 
 <div class="modal fade" id="steamid" tabindex="-1" role="dialog" aria-labelledby="steamidTitle" aria-hidden="true">
