@@ -1,29 +1,21 @@
 <?php
-global $Smarty, $Statement;
+global $Smarty;
+require_once APP."ProfileController.php";
+$Profile = new ProfileController();
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_GET['changesid'] === "1") {
-    require_once(APP."DatabaseController.php");
     $Steam_ID = preg_replace('/[^-a-zA-Z0-9_:]/', '', $_POST['Steam_ID']);
     if ($Steam_ID === "") {
         $_SESSION['ErrorMsg'] = "Pole nie może być pustę";
         header("Location: /?page=profile");
         exit();
     }
+    $Profile->SetSteamId($_SESSION['Login_id'], $Steam_ID);
+    $_SESSION['Steam_id'] = $Profile->GetSteamId($_SESSION['Login_id']);
     unset($_SESSION['ErrorMsg']);
-    $Query = "UPDATE `users` SET `Steam_id`=:Steam_id WHERE `id`=:id";
-    $Stmt = $Statement->prepare($Query);
-    $Stmt->bindValue(":Steam_id", $Steam_ID);
-    $Stmt->bindValue(":id", $_SESSION['Login_id']);
-    $Stmt->execute();
-    $Query = "SELECT `Steam_id` from `users` where `id`=:id";
-    $Stmt = $Statement->prepare($Query);
-    $Stmt->bindValue(":id", $_SESSION['Login_id']);
-    $Stmt->execute();
-    $Result = $Stmt->fetch();
-    $_SESSION['Steam_id'] = $Result['Steam_id'];
-    $_SESSION['Success'] = "Zmieniłeś SteamID";
-    header("url=/?page=profile");
 }
 if ($_SESSION['Logged'] === TRUE) {
+    $_SESSION['Steam_id'] = $Profile->GetSteamId($_SESSION['Login_id']);
+    $_SESSION['Wallet'] = $Profile->GetWallet($_SESSION['Login_id']);
     $Smarty->assign("Name", $_SESSION['Name']);
     $Smarty->assign("Wallet", $_SESSION['Wallet']);
     $Smarty->assign("Steam_id", $_SESSION['Steam_id']);

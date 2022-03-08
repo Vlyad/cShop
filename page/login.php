@@ -2,7 +2,7 @@
 require_once(APP."/LoginController.php");
 require_once(APP."/Core.php");
 global $Smarty;
-if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && $_SESSION['Logged'] !== TRUE) {
     if (isset($_GET['success'])) {
         $Page = preg_replace('/[^-a-zA-Z0-9_]/', '', $_GET['success']);
         if ($Page = 1) {

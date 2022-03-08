@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.1.0, created on 2022-02-25 20:09:05
+/* Smarty version 4.1.0, created on 2022-03-03 14:03:11
   from 'F:\cshop\view\template\layouts\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.1.0',
-  'unifunc' => 'content_621929514c6f11_13388900',
+  'unifunc' => 'content_6220bc8fde34f3_07314707',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5957a0b7fdd5a3a0c0060fd56d53008e5c2fb736' => 
     array (
       0 => 'F:\\cshop\\view\\template\\layouts\\header.tpl',
-      1 => 1645816144,
+      1 => 1646312590,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_621929514c6f11_13388900 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6220bc8fde34f3_07314707 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE HTML>
 <html lang="pl-PL">
 <head>
@@ -28,10 +28,11 @@ function content_621929514c6f11_13388900 (Smarty_Internal_Template $_smarty_tpl)
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="/public/bootstrap/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     <link href="/public/css/app.css" rel="stylesheet">
+    <title></title>
 </head>
 <body>
 <header class="header-banner" role="banner">
-    <div class="banner"><img src="/public/img/header1.png"> </div>
+    <div class="banner"><img src="/public/img/header1.png" title="header_bg" alt="header_bg"> </div>
 </header>
 <nav class="navbar navbar-expand-lg navbar-light">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,6 +57,11 @@ function content_621929514c6f11_13388900 (Smarty_Internal_Template $_smarty_tpl)
                     <a class="nav-link" href="/?page=profile"><?php echo $_SESSION['Name'];?>
 </a>
                 </li>
+                <?php if ((isset($_SESSION['Admin']))) {?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/?page=admin">Admin Panel</a>
+                    </li>
+                <?php }?>
                 <li class="nav-item">
                     <a class="nav-link" href="/?page=logout">Wyloguj!</a>
                 </li>

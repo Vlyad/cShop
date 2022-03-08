@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="/public/bootstrap/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     <link href="/public/css/app.css" rel="stylesheet">
+    <title></title>
 </head>
 <body>
 <header class="header-banner" role="banner">
-    <div class="banner"><img src="/public/img/header1.png"> </div>
+    <div class="banner"><img src="/public/img/header1.png" title="header_bg" alt="header_bg"> </div>
 </header>
 <nav class="navbar navbar-expand-lg navbar-light">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,6 +33,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/?page=profile">{$smarty.session.Name}</a>
                 </li>
+                {if isset($smarty.session.Admin)}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/?page=admin">Admin Panel</a>
+                    </li>
+                {/if}
                 <li class="nav-item">
                     <a class="nav-link" href="/?page=logout">Wyloguj!</a>
                 </li>

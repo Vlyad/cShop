@@ -29,6 +29,8 @@ if (isset($_GET['page'])) {
             break;
         case "wallet":
             require_once PAGE."wallet.php";
+        case "admin":
+            require_once PAGE."admin.php";
     }
 }
 else {
